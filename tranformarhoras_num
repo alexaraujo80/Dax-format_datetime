@@ -1,0 +1,9 @@
+SELECT 
+    ORIGINAL_TIME AS OriginalTime,
+    CONCAT(
+        LPAD(FLOOR(ORIGINAL_TIME / 24), 2, '0'), ':',
+        LPAD(MOD(FLOOR(ORIGINAL_TIME), 24), 2, '0'), ':',
+        LPAD(ROUND((ORIGINAL_TIME - FLOOR(ORIGINAL_TIME)) * 60), 2, '0')
+    ) AS FormattedTime
+FROM 
+    (SELECT 101.27 AS ORIGINAL_TIME) AS Temp;
